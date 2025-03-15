@@ -1,65 +1,65 @@
-import { Menu, X } from "lucide-react"
-import { useEffect, useState } from "react"
-import { sections } from "../utils/config"
+import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { sections } from "../utils/config";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [activeSection, setActiveSection] = useState("home")
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
+      setIsScrolled(window.scrollY > 10);
 
       const currentSection = sections.find((section) => {
-        const element = document.getElementById(section)
-        if (!element) return false
+        const element = document.getElementById(section);
+        if (!element) return false;
 
-        const rect = element.getBoundingClientRect()
-        return rect.top <= 100 && rect.bottom >= 100
-      })
+        const rect = element.getBoundingClientRect();
+        return rect.top <= 100 && rect.bottom >= 100;
+      });
 
       if (currentSection) {
-        setActiveSection(currentSection)
+        setActiveSection(currentSection);
       }
-    }
+    };
 
     let timeout;
     const throttledScroll = () => {
       if (!timeout) {
         timeout = setTimeout(() => {
-          handleScroll()
-          timeout = null
-        }, 100)
+          handleScroll();
+          timeout = null;
+        }, 100);
       }
-    }
+    };
 
-    window.addEventListener("scroll", throttledScroll)
-    return () => window.removeEventListener("scroll", throttledScroll)
-  }, [])
+    window.addEventListener("scroll", throttledScroll);
+    return () => window.removeEventListener("scroll", throttledScroll);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ""
+      document.body.style.overflow = "";
     }
 
     return () => {
-      document.body.style.overflow = ""
-    }
-  }, [isOpen])
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
-  const toggleMenu = () => setIsOpen(!isOpen)
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   const scrollToSection = (id) => {
-    setIsOpen(false)
-    const element = document.getElementById(id)
+    setIsOpen(false);
+    const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-      setActiveSection(id)
+      element.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(id);
     }
-  }
+  };
 
   const navItems = [
     { id: "home", label: "Home" },
@@ -67,14 +67,14 @@ export default function Navbar() {
     { id: "events", label: "Events" },
     { id: "schedule", label: "Schedule" },
     { id: "sponsors", label: "Sponsors" },
-  ]
+  ];
 
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-white/10 backdrop-blur-lg shadow-lg py-2" 
-          : "bg-transparent py-4"
+        isScrolled
+          ? "bg-white/10 text-gray-900 shadow-lg py-2"
+          : "bg-transparent text-white py-4"
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
@@ -83,7 +83,6 @@ export default function Navbar() {
           className="group flex items-center space-x-2 focus:outline-none"
           aria-label="Go to home section"
         >
-          
           <span className="font-bold text-xl text-white">Team Quark</span>
         </button>
 
@@ -93,7 +92,9 @@ export default function Navbar() {
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={`relative px-2 py-1 text-sm font-medium transition-colors ${
-                activeSection === item.id ? "text-white" : "text-gray-300 hover:text-white"
+                activeSection === item.id
+                  ? "text-white"
+                  : "text-gray-300 hover:text-white"
               }`}
             >
               {item.label}
@@ -131,7 +132,9 @@ export default function Navbar() {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`py-3 text-lg font-medium border-b border-gray-800/50 ${
-                  activeSection === item.id ? "text-indigo-400" : "text-gray-300"
+                  activeSection === item.id
+                    ? "text-indigo-400"
+                    : "text-gray-300"
                 }`}
               >
                 {item.label}
@@ -147,5 +150,5 @@ export default function Navbar() {
         </div>
       )}
     </header>
-  )
+  );
 }

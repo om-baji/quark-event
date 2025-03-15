@@ -3,7 +3,7 @@ import Footer from "./components/Footer";
 import { sections } from "./utils/config";
 function App() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-zinc-800">
       <Navbar />
       <main>
         {sections.map(
@@ -18,8 +18,7 @@ function App() {
                   {section === "home" ? "Team Quark" : section}
                 </h2>
                 <p className="text-gray-300 max-w-2xl">
-                  This is the {section} section. Scroll to see how the navbar
-                  updates and changes as you move through the page.
+                  This is the {section} section. Add your component here.
                 </p>
               </div>
             </section>
