@@ -1,3 +1,4 @@
+import { Home } from "../pages/Home";
 import Navbar from "../src/components/Navbar";
 import Footer from "./components/Footer";
 import { sections } from "./utils/config";
@@ -6,6 +7,7 @@ function App() {
     <div className="min-h-screen bg-zinc-800">
       <Navbar />
       <main>
+        <Home />
         {sections.map(
           (section) => (
             <section
