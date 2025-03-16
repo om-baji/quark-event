@@ -10,7 +10,7 @@ import {
 } from "framer-motion";
 import ShinyText from "../components/ShinyText.jsx";
 
-const COLORS_TOP = ["#13FFAA", "#1E67C6", "#e261ff", "#DD335C"]; // Fixed the typo in the color value
+const COLORS_TOP = ["#000000", "#150050", "#3F0071", "#610094"]; // Fixed the typo in the color value
 
 export const Home = () => {
   const color = useMotionValue(COLORS_TOP[0]);
