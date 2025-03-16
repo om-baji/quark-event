@@ -1,4 +1,4 @@
-import { Home } from "../pages/Home";
+import { Home } from "./pages/Home";
 import Navbar from "../src/components/Navbar";
 import Footer from "./components/Footer";
 import { sections } from "./utils/config";
