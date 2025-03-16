@@ -70,17 +70,6 @@ function App() {
             <section id="sponsors" className="py-20 bg-[#150050]">
               <div className="flex justify-center items-center">THis is SPonsers section</div>
             </section>
-            <Home />
-            {sections.map((section) => (
-              <section key={section} id={section} className="min-h-screen flex items-center justify-center p-4">
-                <div className="text-center">
-                  <h2 className="text-4xl font-bold text-white mb-4 capitalize">
-                    {section === "home" ? "Team Quark" : section}
-                  </h2>
-                  <p className="text-gray-300 max-w-2xl">This is the {section} section. Add your component here.</p>
-                </div>
-              </section>
-            ))}
           </main>
 
           <footer className="bg-[#000000] text-white/70 py-6 text-center border-t border-[#3F0071]">
