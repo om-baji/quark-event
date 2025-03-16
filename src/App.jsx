@@ -8,6 +8,7 @@ import { Home } from "./pages/Home"
 import Navbar from "../src/components/Navbar"
 import Loader from "./components/Loader"
 import { sections } from "./utils/config"
+import EventAndWorkshops from "./components/EventsAndWorkshops"
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -60,7 +61,9 @@ function App() {
             </section>
 
             <section id="events" className="py-20 bg-[#150050]">
-              <div className="flex justify-center items-center">THis is Events & Workshops section</div>
+              <div className="flex justify-center items-center">
+                <EventAndWorkshops />
+              </div>
             </section>
 
             <section id="schedule" className="py-20">
