@@ -12,9 +12,9 @@ const scheduleData = [
 const Schedule = () => {
   return (
     <div className="w-full min-h-screen bg-black flex items-center justify-center py-16 px-4">
-      <div className="max-w-4xl w-full relative">
+      <div className="max-w-5xl w-full relative">
 
-        {/* Title with 3D motion and shine */}
+        {/* Title */}
         <motion.h2
           whileHover={{ rotateX: 10, rotateY: -10 }}
           transition={{ type: 'spring', stiffness: 100 }}
@@ -31,52 +31,59 @@ const Schedule = () => {
               0 3px 5px rgba(100, 0, 255, 0.3)
             `,
           }}
-          className="text-8xl font-extrabold text-center mb-16 text-white animate-shine-3d"
+          className="text-8xl font-extrabold text-center mb-24 text-white animate-shine-3d"
         >
           SCHEDULE
         </motion.h2>
 
-        {/* Timeline Content */}
-        <div className="flex flex-col gap-20 relative">
-          {scheduleData.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className={`flex w-full items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
-            >
-              {/* Date box */}
-              <div className={`w-1/4 flex ${index % 2 === 0 ? 'justify-end pr-8' : 'justify-start pl-8'}`}>
-                <div className="bg-purple-500 text-white font-bold px-6 py-4 rounded relative flex items-center shadow-[0_0_20px_rgba(170,0,255,0.8)] text-xl">
-                  <span>{item.date}</span>
-                  {/* Triangle pointer */}
-                  <div className={`absolute top-1/2 -translate-y-1/2 w-0 h-0 
-                    ${index % 2 === 0
-                      ? 'left-full border-l-8 border-l-purple-500'
-                      : 'right-full border-r-8 border-r-purple-500'} 
-                    border-y-8 border-y-transparent`}
-                  ></div>
-                </div>
-              </div>
+        {/* Timeline Container */}
+        <div className="flex flex-col gap-24 relative">
 
-              {/* Event description box with purple glassmorphism */}
-              <div className={`w-3/4 ${index % 2 === 0 ? 'pl-8' : 'pr-8 text-right'}`}>
-                <div className="relative bg-purple-500/10 backdrop-blur-md border border-purple-500/20 p-8 rounded-2xl shadow-lg hover:shadow-[0_0_30px_rgba(170,0,255,0.5)] transition-all duration-300">
-                  {/* Neon reflection / glow overlay */}
-                  <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-r from-purple-500/30 to-purple-800/20 opacity-20 rounded-full blur-3xl pointer-events-none group-hover:opacity-40 transition-opacity duration-500" />
+          {/* Vertical timeline line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 to-purple-800 opacity-50 animate-pulse rounded-full z-0" />
 
-                  <h3 className="text-purple-400 text-4xl font-bold mb-4">{item.event}</h3>
-                  <p className="text-white text-lg leading-relaxed">
-                    {index % 2 === 0
-                      ? 'Deep dive into expert insights and hands-on experience.'
-                      : 'Build your skills with practical knowledge and innovative solutions.'}
-                  </p>
+          {scheduleData.map((item, index) => {
+            const isEven = index % 2 === 0;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className={`flex w-full items-center justify-between relative ${isEven ? '' : 'flex-row-reverse'}`}
+              >
+                {/* Date Box */}
+                <div className={`w-2/5 flex ${isEven ? 'justify-end pr-4' : 'justify-start pl-4'}`}>
+                  <div className="bg-purple-500 text-white font-bold px-10 py-6 rounded relative flex items-center text-2xl shadow-[0_0_25px_rgba(170,0,255,0.8)]">
+                    <span>{item.date}</span>
+                    <div className={`absolute top-1/2 ${isEven ? 'left-full' : 'right-full'} -translate-y-1/2 w-0 h-0 
+                      ${isEven ? 'border-l-8 border-l-purple-500' : 'border-r-8 border-r-purple-500'}
+                      border-y-8 border-y-transparent`} />
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+
+                {/* Dot in center */}
+                <div className="relative z-10 flex justify-center items-center">
+                  <div className="w-10 h-10 bg-purple-500 rounded-full shadow-[0_0_20px_rgba(170,0,255,0.8)] animate-pulse" />
+                </div>
+
+                {/* Event Box */}
+                <div className={`w-2/5 flex ${isEven ? 'justify-start pl-4' : 'justify-end pr-4'}`}>
+                  <div className="relative bg-purple-500/10 backdrop-blur-md border border-purple-500/20 p-10 rounded-2xl shadow-lg hover:shadow-[0_0_50px_rgba(170,0,255,0.5)] transition-all duration-300">
+                    <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-r from-purple-500/30 to-purple-800/20 opacity-20 rounded-full blur-3xl pointer-events-none group-hover:opacity-40 transition-opacity duration-500" />
+                    
+                    <h3 className="text-purple-400 text-3xl font-bold mb-6">{item.event}</h3>
+                    <p className="text-white text-lg leading-relaxed">
+                      {isEven
+                        ? 'Deep dive into expert insights and hands-on experience.'
+                        : 'Build your skills with practical knowledge and innovative solutions.'}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </div>
