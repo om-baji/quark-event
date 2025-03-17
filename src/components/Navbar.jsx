@@ -47,7 +47,7 @@ function Navbar() {
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="text-white/80 hover:text-white transition-colors relative group"
+                    className="text-white hover:text-purple-300 transition-colors relative group"
                     onClick={(e) => {
                       e.preventDefault()
                       document.querySelector(item.href)?.scrollIntoView({

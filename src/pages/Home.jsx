@@ -1,5 +1,3 @@
-"use client"
-
 import { Stars } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import { useEffect } from "react"
@@ -47,7 +45,7 @@ const letterAnimation = {
     y: 0,
     transition: {
       delay: i * 0.05,
-      duration: 0.7, // Increased duration for smoother animation
+      duration: 0.7, 
     },
   }),
 };

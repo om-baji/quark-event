@@ -1,8 +1,24 @@
-import { motion } from "framer-motion";
+import { motion, useMotionTemplate, useMotionValue, animate } from "framer-motion";
 import { Clock, MapPin } from "lucide-react";
+import { useEffect } from "react";
 import { workshops } from "../../utils/constants";
 
 export function Workshop() {
+  const COLORS_TOP = ["#000000", "#150050", "#3F0071", "#610094"];
+  const color = useMotionValue(COLORS_TOP[0]);
+
+  useEffect(() => {
+    animate(color, COLORS_TOP, {
+      ease: "easeInOut",
+      duration: 5,
+      repeat: Number.POSITIVE_INFINITY,
+      repeatType: "mirror",
+    });
+  }, []);
+
+  const border = useMotionTemplate`1px solid ${color}`;
+  const boxShadow = useMotionTemplate`0px 4px 24px ${color}`;
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -26,19 +42,6 @@ export function Workshop() {
     }
   };
 
-  const shimmerEffect = {
-    background: "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%)",
-    backgroundSize: "200% 100%",
-    animation: "shimmer 1.5s infinite",
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    zIndex: 1,
-    pointerEvents: "none"
-  };
-
   return (
     <motion.div 
       className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6"
@@ -49,11 +52,14 @@ export function Workshop() {
       {workshops.map((workshop, index) => (
         <motion.div 
           key={index} 
-          className="w-full bg-black p-6 rounded-lg text-white shadow-lg relative overflow-hidden border border-gray-800"
+          className="w-full bg-gray-950 p-6 rounded-lg text-gray-200 shadow-lg relative overflow-hidden"
+          style={{
+            border,
+            boxShadow,
+          }}
           variants={cardVariants}
           whileHover={{ 
             scale: 1.02,
-            boxShadow: "0 10px 25px -5px rgba(97, 0, 148, 0.3)",
             transition: { duration: 0.2 }
           }}
           whileTap={{ scale: 0.98 }}
@@ -67,7 +73,7 @@ export function Workshop() {
           
           <div className="flex items-center justify-between mb-5 relative z-10">
             <motion.div 
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-[#610094] text-black"
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-[#610094] text-gray-200"
               whileHover={{ rotate: [0, -10, 10, -5, 5, 0], transition: { duration: 0.5 } }}
             >
               {workshop.icon}
@@ -93,7 +99,7 @@ export function Workshop() {
           
           <motion.div 
             className="flex items-center text-xs text-gray-400 mt-auto relative z-10"
-            whileHover={{ color: "#8a2be2", scale: 1.02 }}
+            whileHover={{ color: "#3F0071", scale: 1.02 }}
           >
             <MapPin size={14} className="mr-1" />
             <span>{workshop.location}</span>
