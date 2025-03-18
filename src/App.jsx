@@ -10,6 +10,7 @@ import Loader from "./components/Loader"
 import { sections } from "./utils/config"
 import EventAndWorkshops from "./components/EventsAndWorkshops"
 import Schedule from "./components/Schedule"
+import Sponsors from "./components/Sponsors"
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -74,7 +75,9 @@ function App() {
             </section>
 
             <section id="sponsors" className="py-20 bg-[#150050]">
-              <div className="flex justify-center items-center">THis is SPonsers section</div>
+              <div className="flex justify-center items-center">
+                <Sponsors />
+              </div>
             </section>
           </main>
 
