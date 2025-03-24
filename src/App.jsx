@@ -74,11 +74,11 @@ function App() {
               </div>
             </section>
 
-            <section id="sponsors" className="py-20 bg-[#150050]">
+            {/* <section id="sponsors" className="py-20 bg-[#150050]">
               <div className="flex justify-center items-center">
                 <Sponsors />
               </div>
-            </section>
+            </section> */}
           </main>
 
           <footer className="bg-[#000000] text-white/70 py-6 text-center border-t border-[#3F0071]">

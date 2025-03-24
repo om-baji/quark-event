@@ -7,7 +7,7 @@ const navItems = [
   { name: "About", href: "#about" },
   { name: "Events", href: "#events" },
   { name: "Schedule", href: "#schedule" },
-  { name: "Sponsors", href: "#sponsors" },
+  // { name: "Sponsors", href: "#sponsors" },
 ]
 
 function Navbar() {
