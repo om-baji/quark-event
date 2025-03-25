@@ -91,28 +91,29 @@ export const contentVariants = {
 
 export const scheduleData = [
   {
-    date: '1st April',
-    event: 'Speaker Session',
-    description: 'Deep dive into expert insights and hands-on experience from renowned speakers.',
+    date: 'Day 1',
+    event: "SPEAKER'S SESSION",
+    description: "Kick off the event with an insightful speaker session to set the tone and get everyone motivated.",
   },
   {
-    date: '2nd April',
-    event: 'Workshop and Fun Activities',
-    description: 'Engage in exciting workshops and fun-filled activities designed to boost creativity.',
+    "date": "Day 2 & 3",
+    "event": "FUN CHALLENGES AND COMPETITIONS",
+    "description": 
+      "- Blind Coding\n- AI Image Generation from Text",
+  },
+  
+  
+  
+  {
+    date: 'Day 4',
+    event: 'SHORT BREAK',
+    description: 'Take a moment to relax and recharge before diving into hands-on workshops.',
   },
   {
-    date: '3rd April',
-    event: 'Workshops',
-    description: 'Enhance your skills with practical workshops led by industry professionals.',
+    date: 'Day 5 & 6',
+    event: 'WORKSHOPS',
+    description: 
+      "-Prompt Engineering for LLMs with RAG \n- Gen Al-Powered Web App Development",
   },
-  {
-    date: '4th April',
-    event: 'Fun Activities',
-    description: 'Relax and unwind with entertaining activities and interactive sessions.',
-  },
-  {
-    date: '5th April',
-    event: 'Hackathon',
-    description: 'Participate in an intense hackathon and bring your innovative ideas to life.',
-  },
+  
 ];
