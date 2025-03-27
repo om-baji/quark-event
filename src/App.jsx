@@ -11,6 +11,7 @@ import { sections } from "./utils/config"
 import EventAndWorkshops from "./components/EventsAndWorkshops"
 import Schedule from "./components/Schedule"
 import Sponsors from "./components/Sponsors"
+import SpeakerSessions from "./components/SpeakerSession"
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -65,6 +66,11 @@ function App() {
             <section id="events" className="py-20 bg-[#150050]">
               <div className="flex justify-center items-center">
                 <EventAndWorkshops />
+              </div>
+            </section>
+            <section id="events" className="py-20 bg-[#150050]">
+              <div className="flex justify-center items-center">
+                <SpeakerSessions />
               </div>
             </section>
 
