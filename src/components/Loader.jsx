@@ -25,7 +25,7 @@ const Loader = ({ finishLoading }) => {
     const messageTimer = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * loadingMessages.length)
       setLoadingText(loadingMessages[randomIndex])
-    }, 1500)
+    }, 700)
 
     return () => clearInterval(messageTimer)
   }, [])
@@ -33,7 +33,7 @@ const Loader = ({ finishLoading }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       if (progress < 100) {
-        setProgress((prev) => Math.min(prev + 1, 100))
+        setProgress((prev) => Math.min(prev + 4, 100))
       } else {
         setTimeout(() => {
           finishLoading()
