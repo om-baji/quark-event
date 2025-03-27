@@ -1,17 +1,15 @@
 "use client"
 
-import { useScroll, useTransform } from "framer-motion"
-import { useEffect, useRef, useState } from "react"
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { ChevronDown } from "lucide-react"
-import { Home } from "./pages/Home"
+import { useEffect, useRef, useState } from "react"
 import Navbar from "../src/components/Navbar"
-import Loader from "./components/Loader"
-import { sections } from "./utils/config"
 import EventAndWorkshops from "./components/EventsAndWorkshops"
+import Loader from "./components/Loader"
 import Schedule from "./components/Schedule"
-import Sponsors from "./components/Sponsors"
 import SpeakerSessions from "./components/SpeakerSession"
+import { Home } from "./pages/Home"
+import AboutEnvision from "./components/About"
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -60,7 +58,7 @@ function App() {
             </section>
 
             <section id="about" className="py-20">
-              THis is About section
+              <AboutEnvision />
             </section>
 
             <section id="events" className="py-20 bg-[#150050]">
