@@ -106,8 +106,8 @@ export const scheduleData = [
   
   {
     date: 'Day 4',
-    event: 'SHORT BREAK',
-    description: 'Take a moment to relax and recharge before diving into hands-on workshops.',
+    event: 'SPEAKER SESSION ',
+    description: 'Members only session for resume building, career guidance, etc.',
   },
   {
     date: 'Day 5 & 6',
