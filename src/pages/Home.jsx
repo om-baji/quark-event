@@ -66,7 +66,6 @@ export const Home = () => {
   const border = useMotionTemplate`1px solid ${color}`
   const boxShadow = useMotionTemplate`0px 4px 24px ${color}`
 
-  // Split text into letters for individual animation
   const envisionText = "ENVISION"
   const genAiText = "GEN AI Event"
 
@@ -89,7 +88,6 @@ export const Home = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            {/* ENVISION with floating and letter animation */}
             <motion.div
               variants={floatingAnimation}
               animate="animate"
@@ -112,7 +110,6 @@ export const Home = () => {
                 ))}
               </motion.div>
 
-              {/* GEN AI Event with different timing */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{
@@ -141,7 +138,6 @@ export const Home = () => {
             speakers exploring the latest in AI innovations.
           </motion.p>
 
-          {/*TODO : Redirect to event section in the final build*/}
           <a href="#events">
             <motion.button
               style={{

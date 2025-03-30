@@ -98,21 +98,21 @@ export const scheduleData = [
   {
     date: '2nd April',
     event: 'Workshop and Fun Activities',
-    description: 'Engage in exciting workshops and fun-filled activities designed to boost creativity.',
+    description: 'Blind Coding Challenge: Test your skills by coding without a preview!',
   },
   {
     date: '3rd April',
     event: 'Workshops',
-    description: 'Enhance your skills with practical workshops led by industry professionals.',
+    description: 'Create stunning visuals with AI-driven text-to-image generation.',
   },
   {
     date: '4th April',
-    event: 'Fun Activities',
-    description: 'Relax and unwind with entertaining activities and interactive sessions.',
+    event: 'Members Only Sessions',
+    description: 'A members-only session focused on resume enhancement, career guidance, and professional growth.',
   },
   {
     date: '5th April',
-    event: 'Hackathon',
-    description: 'Participate in an intense hackathon and bring your innovative ideas to life.',
+    event: 'Workshops',
+    description: 'Exclusive workshops on Prompt Engineering with LLMs, Retrieval-Augmented Generation (RAG), and GenAI-powered web development.',
   },
 ];
